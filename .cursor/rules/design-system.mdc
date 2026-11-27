@@ -1,0 +1,51 @@
+---
+description: Personal/professional portfolio design system. Applies to every prompt.
+alwaysApply: true
+---
+
+# Design system: personal/professional portfolio template
+Reference: brandonyasin.com (style only, never copy its code, text or images).
+
+## Colors (put these in Tailwind theme / CSS variables, never hardcode other colors)
+- bg: #645d4b (warm olive, used on every page)
+- ink: #f0c040 (warm gold, all main text)
+- ink-muted: gold at ~60% opacity for small meta text
+- contact-bg: sage green (pick a muted sage close to #a9b39a), contact-ink: dark forest green (#1f2a1c)
+- No other accent colors.
+
+## Type
+- One font family: Instrument Sans (next/font/google).
+- Headings: lowercase, tight tracking (-0.03em), large (64-80px desktop, 40-48px mobile).
+- Meta / nav / captions: UPPERCASE, 10-11px, tight line-height, slight letter-spacing.
+- Long text on case pages: ~32-36px desktop, ~20-22px mobile.
+- Decorative script monogram is an SVG only, never a script webfont for text.
+
+## Layout & spacing
+- Lots of empty space; content sits low on the page, top area mostly empty.
+- 4-column header grid, small type pinned to corners.
+- Spacing scale: 4, 8, 12, 16, 24, 32, 48, 64, 96px. Card gaps are tight (~6px).
+- Photos are tall portrait, no rounded corners, no borders, no shadows.
+
+## Motion
+- Subtle and fast: 200-400ms for hovers, 600-1200ms for reveals, ease-out curves.
+- Allowed: text roll on hover (label slides up, copy slides in), image wipe-reveal top to bottom, small lift on hover, magnetic small icons.
+- Respect prefers-reduced-motion.
+
+## Animation
+- Use GSAP (with the useGSAP hook from @gsap/react) for big moments: image wipe reveals, staggered intros, horizontal scroll strip, page/menu transitions.
+- Use CSS transitions for small hovers (text roll, card lift).
+- Always clean up animations (useGSAP scope), register plugins once, respect prefers-reduced-motion.
+
+## Ban list (never use)
+- purple/blue gradients, any gradient backgrounds
+- glassmorphism, blur cards, frosted panels
+- generic icon + title + text feature cards
+- rounded-2xl cards with drop shadows
+- emoji in UI, stock 3D blobs, sparkles
+- copy like "Elevate your business", "Unlock", "Seamless", "Empower", "Transform your vision"
+- default shadcn look left unstyled
+- centered hero with big headline + two buttons
+
+## Workflow
+- Every UI task starts by using the frontend-design skill in .agents/skills.
+- Check every section at 1280px and 390px wide before saying done.
