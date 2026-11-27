@@ -39,7 +39,7 @@ export function LocalTime({ label, timeZone }: LocalTimeProps) {
 
   return (
     <div>
-      <p className="text-gold-muted">{label}</p>
+      <p className="text-muted">{label}</p>
       <p className={time ? "tabular-nums" : "tabular-nums opacity-0"}>
         {hours}
         <span className="inline-block px-[0.35em] animate-blink motion-reduce:animate-none">

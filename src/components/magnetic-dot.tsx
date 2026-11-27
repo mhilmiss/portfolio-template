@@ -54,9 +54,9 @@ export function MagneticDot() {
     <div ref={areaRef} aria-hidden className="-m-3 grid size-13 place-items-center">
       <span
         ref={ringRef}
-        className="grid size-7 place-items-center rounded-full border border-gold"
+        className="grid size-7 place-items-center rounded-full border border-accent"
       >
-        <span ref={dotRef} className="size-1 rounded-full bg-gold" />
+        <span ref={dotRef} className="size-1 rounded-full bg-accent" />
       </span>
     </div>
   );

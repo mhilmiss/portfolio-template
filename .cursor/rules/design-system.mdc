@@ -6,29 +6,33 @@ alwaysApply: true
 # Design system: personal/professional portfolio template
 Reference: brandonyasin.com (style only, never copy its code, text or images).
 
-## Colors (put these in Tailwind theme / CSS variables, never hardcode other colors)
-- bg: #645d4b (warm olive, used on every page)
-- ink: #f0c040 (warm gold, all main text)
-- ink-muted: gold at ~60% opacity for small meta text
-- contact-bg: sage green (pick a muted sage close to #a9b39a), contact-ink: dark forest green (#1f2a1c)
-- No other accent colors.
+## Colors (CSS variables, never hardcode other colors)
+- --bg: #111118 (ink, page background)
+- --ink: #f7f5f1 (cream, main text)
+- --muted: #bac4b8 (sage-grey, secondary text, labels)
+- --accent: #cc9933 (gold, small details and active states only)
+- Contact modal: bg #f7f5f1, ink #111118 (reuse --ink as bg and --bg as text, no new tokens).
+- No other colors. Project images may bring their own color.
 
 ## Type
-- One font family: Instrument Sans (next/font/google).
-- Headings: lowercase, tight tracking (-0.03em), large (64-80px desktop, 40-48px mobile).
-- Meta / nav / captions: UPPERCASE, 10-11px, tight line-height, slight letter-spacing.
-- Long text on case pages: ~32-36px desktop, ~20-22px mobile.
-- Decorative script monogram is an SVG only, never a script webfont for text.
+- Instrument Serif (light feel, lowercase, tight tracking) for display.
+- Instrument Sans for nav, meta, body.
+- Desktop scale: home H1 ~128px, case H1 ~112px, chapter titles ~88px, subheads ~56px, quotes ~40px, body 18px, nav 15px, meta 13px uppercase.
+- Mobile: H1 ~52px, case H1 ~44px, chapters ~36px, body 16px.
+- Hierarchy comes from the serif vs sans switch, not from many weights.
 
-## Layout & spacing
-- Lots of empty space; content sits low on the page, top area mostly empty.
-- 4-column header grid, small type pinned to corners.
-- Spacing scale: 4, 8, 12, 16, 24, 32, 48, 64, 96px. Card gaps are tight (~6px).
-- Photos are tall portrait, no rounded corners, no borders, no shadows.
+## Layout
+- Lots of empty space, one project in focus at a time.
+- Home: horizontal strip of tall narrow image slices.
+- Case page: full-width serif title, then full-width image band, then a meta block (Year, Client, Role, Services stacked with hairline rules) beside an intro paragraph, then chapters (hairline rule, big serif title left, short sans text right, full-width image under), then a full-width quote band.
+- About: one typographic essay paragraph in large serif, name and key words in sans, then a simple list (experience/recognition) in serif with sans labels.
+- Hairline rules (1px, --muted at 40%) instead of boxes or cards.
 
 ## Motion
-- Subtle and fast: 200-400ms for hovers, 600-1200ms for reveals, ease-out curves.
-- Allowed: text roll on hover (label slides up, copy slides in), image wipe-reveal top to bottom, small lift on hover, magnetic small icons.
+- Home slices are greyscale and dimmed by default. On hover the slice widens (GSAP, 0.6s power3.out, width driven by pointer position), turns full color, and its image scales to ~1.05. Neighbouring slices shrink slightly.
+- Image reveals: left-to-right clip with a slight scale from 1.05 to 1.
+- Text roll on hover for nav (CSS, ~300ms).
+- No slow preloaders.
 - Respect prefers-reduced-motion.
 
 ## Animation
